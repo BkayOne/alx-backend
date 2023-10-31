@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-"""
-basic flask app
-"""
+
+"""Hello world flask app"""
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
 
 @app.route('/')
-def home_index():
-    """
-    render a basic index page.
-    """
-    return render_template('0-index.html')
+def index():
+    """Index route"""
+    return render_template("0-index.html")
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run()
