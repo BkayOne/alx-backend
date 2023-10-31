@@ -20,13 +20,13 @@ msgstr ""
 
 #: templates/4-index.html:6 templates/5-index.html:4 templates/6-index.html:4
 #: templates/7-index.html:4 templates/index.html:7
-msgid "Bienvenue chez Holberton"
-msgstr ""
+msgid "home_title"
+msgstr "Bienvenue chez Holberton"
 
 #: templates/4-index.html:9 templates/5-index.html:7 templates/6-index.html:7
 #: templates/7-index.html:7 templates/index.html:10
-msgid "Bonjour monde!"
-msgstr ""
+msgid "home_header"
+msgstr "Bonjour monde!"
 
 #: templates/5-index.html:11 templates/6-index.html:11
 #: templates/7-index.html:11 templates/index.html:12
