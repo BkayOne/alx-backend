@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
+"""A simple flask app
 """
-locale with URL parameter
-"""
+
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
-class Config:
+class Config(object):
+    """_summary_
+
+    Returns:
+            _type_: _description_
     """
-    class tools
-    """
-
-    DEBUG = True
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+# configure the flask app
 app = Flask(__name__)
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
@@ -25,27 +26,28 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale() -> str:
-    """
-    Retrieves the locale for a web page.
+def get_locale():
+    """_summary_
+
     Returns:
-        str: best match
+            _type_: _description_
     """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
+        print(locale)
         return locale
+
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+# babel.init_app(app, locale_selector=get_locale)
 
 
 @app.route('/')
-def index() -> str:
+def index():
+    """_summary_
     """
-    default route
-    Returns:
-        html: homepage
-    """
-    return render_template("4-index.html")
+    return render_template('4-index.html')
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(port="5000", host="0.0.0.0", debug=True)
